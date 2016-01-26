@@ -2,7 +2,9 @@ $(document).ready(function(){
   var seconds = 60;
   var minutes = parseInt($("#session").text());
   var intervelId;
+  minutes-=1;
 $("#start").click(function(){
+
         timeUpdate();
     });
 
