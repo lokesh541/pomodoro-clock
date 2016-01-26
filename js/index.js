@@ -3,20 +3,17 @@ $(document).ready(function(){
   var minutes = parseInt($("#session").text());
   var intervelId;
   minutes-=1;
-$("#start").click(function(){
-
-        timeUpdate();
-    });
-
+$("#start").click(timeUpdate);
+if (seconds === 0&& minutes == 0) {
+   startBreak();
+};
 function timeUpdate(){
   if(seconds > 0)  seconds--;
   if(seconds === 0 && minutes >0) {
     seconds=60;
     minutes--;
 }
-if (seconds === 0&& minutes == 0) {
 
-};
   min = checkTime(minutes);
   sec = checkTime(seconds);
   $("#session").text( min + ":" + sec);
