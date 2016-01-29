@@ -21,3 +21,6 @@ p{
   font-size:32px;
   font-weight:10px;
 }
+span{
+  cursor: pointer;
+}
