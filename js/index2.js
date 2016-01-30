@@ -4,26 +4,15 @@ $(document).ready(function(){
   var sessionTime = +parseInt($("#def-session").text());
 
   var intervelId;
-  var binSwitch = true;  /*binary switch for switching b/w events */
+  var timeSwitch = 0;
   var minutes= sessionTime -1;
-
-
-
   $(".plus").click(increment);
   $(".minus").click(decrement);
 
-/*timer*/
-$("#timer").click(function(){
-  if (binSwitch) {
-    binSwitch =false;
-    timeUpdate();
-  }
-  else {
-    binSwitch = true;
-    clearTimeout(intervelId);
-  }
+$("#timer").click(timeUpdate);
+$("#stop").click(function(){
+clearTimeout(intervelId);
 });
-
 function timeUpdate(){
   if(seconds > 0)  seconds--;
 
@@ -33,20 +22,20 @@ function timeUpdate(){
 }
 if (seconds === 0&& minutes === 0) {
 
-  if(binSwitch === 0) {
+  if(timeSwitch === 0) {
     minutes = breakTime-1;
     seconds = 59;
 
   }
   else {
-     binSwitch = 1;
+     timeSwitch = 1;
     minutes = sessionTime-1;
 
   }
 
 }
 
-  min = checkTime(minutes);
+ min = checkTime(minutes);
   sec = checkTime(seconds);
   $("#timer").text( min + ":" + sec);
 intervelId = setTimeout(timeUpdate,1000);
