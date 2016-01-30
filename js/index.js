@@ -1,14 +1,15 @@
 $(document).ready(function(){
   var seconds = 60;
-  var minutes = parseInt($("#session").text());
   var breakTime = +parseInt($("#def-break").text())
   var sessionTime = +parseInt($("#def-session").text());
 
   var intervelId;
   var timeSwitch = 0;
-  minutes-=1;
+  var minutes= sessionTime -1;
+  $(".plus").click(increment);
+  $(".minus").click(decrement);
 
-$("#start").click(timeUpdate);
+$("#timer").click(timeUpdate);
 $("#stop").click(function(){
 clearTimeout(intervelId);
 });
@@ -36,7 +37,7 @@ if (seconds === 0&& minutes === 0) {
 
  min = checkTime(minutes);
   sec = checkTime(seconds);
-  $("#session").text( min + ":" + sec);
+  $("#timer").text( min + ":" + sec);
 intervelId = setTimeout(timeUpdate,1000);
 }
 function checkTime(i) {
@@ -46,14 +47,13 @@ function checkTime(i) {
 
 
 
-$(".plus").click(increment);
-$(".minus").click(decrement);
 function increment() {
-$("#def-break").text(breakTime++);
-$("#def-session").text(sessionTime++);
+$("#def-session,#timer").text(sessionTime++);
 }
 
 function decrement(){
+$("#def-session,#timer").text(sessionTime++);
+
 $("#def-break").text(breakTime--);
 $("#def-session").text(sessionTime--);
 }
