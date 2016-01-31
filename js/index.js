@@ -1,47 +1,53 @@
 $(document).ready(function(){
-  var seconds = 60;
-  var breakTime = +parseInt($("#def-break").text())
-  var sessionTime = +parseInt($("#def-session").text());
-
-  var intervelId;
-  var binSwitch = true;  /*binary switch for switching b/w events */
-  var minutes= sessionTime -1;
-
+ var breakTime = parseInt($("#def-break").text());
+ var sessionTime = parseInt($("#def-session").text());
+ var isActive = false;
+ var hadBreak = false;
+ var minutes = sessionTime;
+ var seconds = 60;
 
 
-  $(".plus").click(increment);
-  $(".minus").click(decrement);
 
-/*timer*/
+$(".plus").click(increment);
+$(".minus").click(decrement);
+
+/*timer  trigger*/
 $("#timer").click(function(){
-  if (binSwitch) {
-    binSwitch =false;
-    timeUpdate();
-  }
-  else {
-    binSwitch = true;
-    clearTimeout(intervelId);
-  }
+if(!isActive){
+  intervelId = setInterval(timerCount,1000);
+  isActive = true;
+}else {
+clearInterval(intervelId);
+isActive = false;
+}
 });
 
-function timeUpdate(){
-  if(seconds > 0)  seconds--;
+function increment(){
+  $(this).next().text(++minutes);
+  seconds = 60;
+}
 
+function decrement(){
+  if (minutes>1) $(this).prev().text(--minutes);
+seconds =60;
+}
+
+
+
+function timerCount(){
+   if(minutes === parseInt($("#def-session").text())) minutes--;
+  if(seconds > 0)  seconds-- ;
   if(seconds === 0 && minutes >0) {
     seconds=60;
     minutes--;
-}
-if (seconds === 0&& minutes === 0) {
+    }
 
-  if(binSwitch === 0) {
-    minutes = breakTime-1;
-    seconds = 59;
-
-  }
-  else {
-     binSwitch = 1;
-    minutes = sessionTime-1;
-
+if (seconds === 0 && minutes ===0) {
+  if (!hadBreak) {
+     minutes = breakTime;
+     hadBreak = true;
+  }else {
+  minutes = sessionTime;
   }
 
 }
@@ -49,27 +55,14 @@ if (seconds === 0&& minutes === 0) {
   min = checkTime(minutes);
   sec = checkTime(seconds);
   $("#timer").text( min + ":" + sec);
-intervelId = setTimeout(timeUpdate,1000);
+
+
 }
+
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
-
-
-
-function increment() {
-$("#def-session,#timer").text(sessionTime++);
-}
-
-function decrement(){
-$("#def-session,#timer").text(sessionTime--);
-
-$("#def-break").text(breakTime--);
-$("#def-session").text(sessionTime--);
-}
-
-
 
 
 });

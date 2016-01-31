@@ -2,14 +2,14 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>A Pen by  lokesh</title>
+    <title></title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
@@ -17,26 +17,26 @@
 </head>
 
   <body class="text-center">
-    <div class = "reset">
-     <div id="breakreset">
+    <div class = "reset row">
+      <div id="sessionreset " class="col-md-6">
+        <h3>session</h3>
+        <span class="plus"><i class="fa fa-plus"></i></span>
+        <span id="def-session">25</span>
+        <span class="minus"><i class="fa fa-minus">
+        </i></span>
+      </div>
+     <div id="breakreset" class="col-md-6">
       <h3>break</h3>
-       <span class="plus">+</span>
-       <span id="def-break">2</span>
-       <span class="minus">-</span>
+       <span class="plus"><i class="fa fa-plus"></i></span>
+       <span id="def-break">5</span>
+       <span class="minus"><i class="fa fa-minus"></i></span>
      </div>
-     <div id="breakreset">
-       <h3>session</h3>
-       <span class="plus">+</span>
-       <span id="def-session">1</span>
-       <span class="minus">-</span>
-     </div>
+
    </div>
 
     <div id = "timer">
-  1
+  25
   </div>
-  <button class =  "btn btn-info" id = "start"> start </button>
-  <button class =  "btn btn-primary" id="stop"> stop </button>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
         <script src="js/index.js"></script>
