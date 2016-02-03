@@ -23,7 +23,13 @@ isActive = false;
 });
 
 function increment(){
-  $(this).next().text(++minutes);
+if (!$( this ).hasClass( "session" )) {
+     minutes = breakTime++;
+}else {
+  minutes = sessionTime++;
+}
+
+  $(this).next().text(minutes);
   seconds = 60;
 }
 
@@ -63,6 +69,5 @@ function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
-
 
 });
