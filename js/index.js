@@ -1,6 +1,6 @@
 $(document).ready(function(){
- var breakTime = parseInt($("#def-break").text());
- var sessionTime = parseInt($("#def-session").text());
+ var breakTime = $("#def-break").text();
+ var sessionTime = $("#def-session").text();
  var isActive = false;
  var hadBreak = false;
  var minutes = sessionTime;
@@ -8,8 +8,8 @@ $(document).ready(function(){
 
 
 
-$(".plus").click(increment);
-$(".minus").click(decrement);
+$("#plus").click(increment);
+$("#minus").click(decrement);
 
 /*timer  trigger*/
 $("#timer").click(function(){
